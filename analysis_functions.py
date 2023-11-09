@@ -15,13 +15,14 @@ import qrcode
 
 
 # To add QR codes to plot
-def add_QR_code(fig, link):
+def add_QR_code(fig, link, position_link=(0, 200)):
     """
     Adds a QR code to a given matplotlib figure object.
 
     Parameters:
     fig (matplotlib.figure.Figure): The figure object to add the QR code to.
     link (str): The link to encode in the QR code.
+    position_link (tuple): The position of the link superimposed with the QR code.
 
     Returns:
     matplotlib.figure.Figure: The modified figure object with the QR code added.
@@ -40,7 +41,7 @@ def add_QR_code(fig, link):
     newax.annotate(
         "dum",
         xy=(0, 0),
-        xytext=(0, 200),
+        xytext=position_link,
         fontsize=15,
         url=link,
         bbox=dict(color="white", alpha=1e-6, url=link),
